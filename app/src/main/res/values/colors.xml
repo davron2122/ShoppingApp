@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="colorPrimary">#9643ff</color>
+    <color name="black">#000000</color>
+    <color name="colorAccent">#d8dadc</color>
+    <color name="lightBlack">#b3000000 </color>
+    <color name="editTextColor">#80000000</color>
+    <color name="bottom_navigation_color">#fcfcfc</color>
+
+
+
+</resources>

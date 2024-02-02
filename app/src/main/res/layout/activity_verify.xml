@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/back_btn_selector"
+        android:padding="8dp"
+        android:clickable="true"
+        android:src="@drawable/ic_back_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="47dp"
+        android:src="@drawable/ic_star"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/backButton">
+
+
+        <TextView
+            android:id="@+id/please_check_your_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.01"
+            android:lineSpacingExtra="4sp"
+            android:text="Please check your email"
+            android:textColor="@color/lightBlack"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/middletext_verify_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="4sp"
+                android:text="We’ve sent a code to  "
+                android:textColor="@color/lightBlack"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="45dp"
+                android:letterSpacing="0.01"
+                android:text="helloworld@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+
+                />
+
+
+            <EditText
+                android:id="@+id/digitCode1"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/edit_text_selector"
+                android:inputType="number"
+                android:maxLength="1"
+                android:padding="14dp"
+                android:textColor="@color/black"
+
+
+                />
+
+            <EditText
+                android:id="@+id/digitCode2"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="92dp"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/edit_text_selector"
+                android:inputType="number"
+                android:maxLength="1"
+                android:padding="14dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/digitCode3"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="184dp"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/edit_text_selector"
+                android:inputType="number"
+                android:maxLength="1"
+                android:padding="14dp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/digitCode4"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="38dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/edit_text_selector"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/verify_account_btn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_below="@+id/digitCode1"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/primary_btn"
+                android:clickable="true"
+                android:gravity="center"
+                android:lineSpacingExtra="4sp"
+                android:text="Verify "
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/verify_account_btn"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="38dp"
+                android:lineSpacingExtra="16sp"
+                android:text="Send Code again 00:20"
+                android:textColor="@color/lightBlack"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
