@@ -1,5 +1,5 @@
  프로젝트 내용
-온라인 쇼핑 앱(아직 진행중인 프로젝트)
+온라인 쇼핑 앱( 진행중인 프로젝트)
 기술스택
 Java, Android Studio, API, UI, Fragment
 프로젝트 특징
