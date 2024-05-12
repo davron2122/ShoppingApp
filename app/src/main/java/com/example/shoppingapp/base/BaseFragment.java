@@ -13,20 +13,25 @@ import androidx.viewbinding.ViewBinding;
 public abstract class BaseFragment <T extends ViewBinding> extends Fragment {
     protected T binding;
 
-    protected BaseActivity baseActivity;
+    protected BaseActivity parent;
 
-    protected abstract T inflateViewBinding(LayoutInflater layoutInflater, ViewGroup container, boolean toAttachParent);
+    protected abstract T inflateView(LayoutInflater inflater, ViewGroup parent, boolean toAttachParent);
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = inflateViewBinding(inflater, container, false);
+   @Nullable
+   @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
+        binding = inflateView(inflater, parent, false);
         return binding.getRoot();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        baseActivity = (BaseActivity) getActivity();
+        parent = (BaseActivity) getActivity();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 }

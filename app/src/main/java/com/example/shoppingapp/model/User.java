@@ -46,26 +46,25 @@ public class User implements Serializable {
 
 
     public User() {
+
     }
 
     public User(String email, String password) {
-        this.id = id;
         this.email = email;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.postCode = postCode;
-        this.deviceToken = deviceToken;
-        this.accessToken = accessToken;
-        this.phoneNumber = phoneNumber;
-        this.access = access;
-        this.refreshToken = refreshToken;
+
     }
 
 
 
 
+
+    public User(String email, String firstName, String lastName, String phoneNumber) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 
     public User(String email, String password, String firstName, String lastName, String phoneNumber, String postCode, String address, String deviceToken) {
         this.email = email;
@@ -77,6 +76,16 @@ public class User implements Serializable {
         this.deviceToken = deviceToken;
         this.phoneNumber = phoneNumber;
 
+
+    }
+
+    public User(String email, String password, String firstName, String lastName, String phoneNumber, String address) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
 
     }
 

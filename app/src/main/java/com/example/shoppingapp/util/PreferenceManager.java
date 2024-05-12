@@ -58,7 +58,15 @@ public class PreferenceManager implements PreferenceHelper {
 
         return defaultValue;
     }
+    @Override
+    public void removeKey(String key) {
+        mPreference.edit().remove(key).apply();
+    }
 
-
-
+    @Override
+    public void clear() {
+        mPreference.edit().clear().apply();
+    }
 }
+
+

@@ -11,14 +11,23 @@ import com.example.shoppingapp.base.BaseActivity;
 import com.example.shoppingapp.databinding.ActivityPasswordChangedBinding;
 
 public class PasswordChangedActivity extends BaseActivity<ActivityPasswordChangedBinding> {
+
     @Override
     protected ActivityPasswordChangedBinding inflateViewBinding(LayoutInflater inflater) {
         return ActivityPasswordChangedBinding.inflate(inflater);
+
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding.backToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PasswordChangedActivity.this, ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.backToLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

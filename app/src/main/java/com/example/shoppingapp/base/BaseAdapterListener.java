@@ -1,11 +1,11 @@
 package com.example.shoppingapp.base;
 
+import com.example.shoppingapp.adapter.ClassificationAdapter;
+
 public interface BaseAdapterListener {
 
-    void onItemClick(int position);
 
-    void onItemRemoveClick (int position);
+   void onCategoryClick(int id, String title, ClassificationAdapter.Type type);
 
-    void onItemLongClick (int position);
 
 }

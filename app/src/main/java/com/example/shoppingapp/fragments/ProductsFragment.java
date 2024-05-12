@@ -26,12 +26,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductFragment extends BaseFragment<FragmentProductBinding> {
+public class ProductsFragment extends BaseFragment<FragmentProductBinding> {
     private ArrayList<Classification> classificationArrayList;
     private ArrayList<Category> categoryArrayList;
-
-    private ArrayList <Subproduct> subproductArrayList;
-
+    private ArrayList<Subproduct> subproductArrayList;
     private ClassificationAdapter adapter;
 
     @Override
@@ -42,10 +40,10 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        classificationArrayList=new ArrayList<>();
-        categoryArrayList=new ArrayList<>();
-        subproductArrayList=new ArrayList<>();
-        adapter=new ClassificationAdapter(classificationArrayList, categoryArrayList,subproductArrayList);
+        classificationArrayList = new ArrayList<>();
+        categoryArrayList = new ArrayList<>();
+        subproductArrayList = new ArrayList<>();
+        adapter = new ClassificationAdapter(classificationArrayList, categoryArrayList, subproductArrayList);
         adapter.setListener(new BaseAdapterListener() {
 
             @Override
@@ -69,20 +67,22 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
             }
         });
 
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.categoryRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false));
+        binding.categoryRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false));
         binding.categoryRecyclerView.setAdapter(adapter);
+
         binding.tvBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ClassificationAdapter.Type type = adapter.moveBack();
                 if (type == ClassificationAdapter.Type.CATEGORY) {
                     binding.tvBackBtn.setText("Classification");
-                } else if (type == ClassificationAdapter.Type.CLASSIFICATION){
+                } else if (type == ClassificationAdapter.Type.CLASSIFICATION) {
                     binding.tvBackBtn.setVisibility(View.GONE);
                     binding.line.setVisibility(View.GONE);
                 }
@@ -94,19 +94,20 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
     public void onStart() {
         super.onStart();
         loadClassification();
+
     }
 
     private void loadClassification() {
-        Call<ArrayList<Classification>> call = parent.mainApi.getClassification();
+        Call<ArrayList<Classification>> call = parent.mainApi.getClassifications();
+
         call.enqueue(new Callback<ArrayList<Classification>>() {
             @Override
             public void onResponse(Call<ArrayList<Classification>> call, Response<ArrayList<Classification>> response) {
-            if (response.isSuccessful()){
-                classificationArrayList.clear();
-                classificationArrayList.addAll(response.body());
-                adapter.notifyDataSetChanged();
-              }
-
+                if (response.isSuccessful()) {
+                    classificationArrayList.clear();
+                    classificationArrayList.addAll(response.body());
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -114,19 +115,20 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
 
             }
         });
-
     }
-    private void loadCategory(int classificationId){
+
+    private void loadCategory(int classificationId) {
         categoryArrayList.clear();
         adapter.changeType(ClassificationAdapter.Type.CATEGORY);
-        Call<ArrayList<Category>> call =parent.mainApi.getCategoryWithClassification(classificationId);
+        Call<ArrayList<Category>> call = parent.mainApi.getCategoryWithClassification(classificationId);
+
         call.enqueue(new Callback<ArrayList<Category>>() {
             @Override
             public void onResponse(Call<ArrayList<Category>> call, Response<ArrayList<Category>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
+
                     categoryArrayList.addAll(response.body());
                     adapter.notifyDataSetChanged();
-
 
                 }
             }
@@ -137,18 +139,19 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
             }
         });
     }
-      private void loadSubproduct(int categoryId){
-          subproductArrayList.clear();
-          adapter.changeType(ClassificationAdapter.Type.SUBPRODUCT);
 
-        Call<ArrayList<Subproduct>> call =parent.mainApi.getSubproductWithCategory(categoryId);
+    private void loadSubproduct(int categoryId) {
+        subproductArrayList.clear();
+        Call<ArrayList<Subproduct>> call = parent.mainApi.getSubproductWithCategory(categoryId);
+        adapter.changeType(ClassificationAdapter.Type.SUBPRODUCT);
 
         call.enqueue(new Callback<ArrayList<Subproduct>>() {
             @Override
             public void onResponse(Call<ArrayList<Subproduct>> call, Response<ArrayList<Subproduct>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
+
                     subproductArrayList.addAll(response.body());
-                    adapter.changeType(ClassificationAdapter.Type.SUBPRODUCT);
+                    adapter.notifyDataSetChanged();
                 }
             }
 
@@ -157,9 +160,5 @@ public class ProductFragment extends BaseFragment<FragmentProductBinding> {
 
             }
         });
-
-
-
-      }
-
+    }
 }

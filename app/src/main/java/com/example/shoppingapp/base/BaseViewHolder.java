@@ -4,20 +4,28 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewbinding.ViewBinding;
 
-public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
+import com.example.shoppingapp.adapter.BaseAdapter;
+
+public abstract class BaseViewHolder<VB extends ViewBinding> extends RecyclerView.ViewHolder {
+
 
   private BaseAdapterListener baseAdapterListener;
 
-    public BaseViewHolder(@NonNull View itemView) {
-        super(itemView);
+    protected  VB binding;
+    public BaseViewHolder(VB binding) {
+        super(binding.getRoot());
+        this.binding=binding;
 
 
     }
 
-    public abstract class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
-
+    public void setBaseAdapterListener (BaseAdapterListener baseAdapterListener){
+    this.baseAdapterListener=baseAdapterListener;
     }
+
+
 
     public   abstract  void onBind(int position);
 

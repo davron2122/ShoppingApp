@@ -24,7 +24,22 @@ public class ResetPasswordActivity extends BaseActivity<ActivityResetPasswordBin
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(ResetPasswordActivity.this, VerifyActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.sendCodeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(ResetPasswordActivity.this, PasswordChangedActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.loginBtnResetPasswordPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

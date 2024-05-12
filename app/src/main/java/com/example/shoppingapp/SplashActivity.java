@@ -9,9 +9,12 @@ import androidx.annotation.Nullable;
 
 import com.example.shoppingapp.base.BaseActivity;
 import com.example.shoppingapp.databinding.ActivitySplashBinding;
+import com.example.shoppingapp.fragments.HomeFragment;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
+
+    private boolean isLogin=false;
 
     @Override
     protected ActivitySplashBinding inflateViewBinding(LayoutInflater inflater) {
@@ -20,14 +23,27 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
-      new Handler().postDelayed(new Runnable() {
-          @Override
-          public void run() {
-              Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-              startActivity(intent);
-          }
-      },3000);
+        //SharedPreferences sharedPreferences = getSharedPreferences("NoteApp", Context.MODE_PRIVATE);
+        isLogin=(Boolean) preferenceManager.getValue(Boolean.class, "isLogin",false);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isLogin) {
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+            }
+        },3000);
+
     }
+
+
 }

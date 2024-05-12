@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    d
-
-
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,6 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".MainActivity"
             android:exported="false">
@@ -35,7 +38,7 @@
         </activity>
         <activity android:name=".LoginActivity"
             android:exported="false"/>
-        <activity android:name=".SignUpActivity"
+        <activity android:name=".RegisterActivity"
             android:exported="false"/>
         <activity android:name=".ForgotPasswordActivity"
             android:exported="false"/>
@@ -43,7 +46,11 @@
             android:exported="false"/>
         <activity android:name=".ResetPasswordActivity"
             android:exported="false"/>
+        <activity android:name=".AddressActivity"/>
         <activity android:name=".PasswordChangedActivity"/>
+        <activity android:name=".ProductListActivity"/>
+        <activity android:name="ProductDetailsActivity"/>
+      <activity android:name=".OrderDetailsActivity"/>
 
     </application>
 

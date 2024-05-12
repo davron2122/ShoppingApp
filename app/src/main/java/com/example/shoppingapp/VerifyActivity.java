@@ -22,10 +22,19 @@ public class VerifyActivity extends BaseActivity<ActivityVerifyBinding> {
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(VerifyActivity.this, ResetPasswordActivity.class);
+                Intent intent = new Intent(VerifyActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.verifyAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VerifyActivity.this, ResetPasswordActivity.class);
                 startActivity(intent);
             }
         });
     }
-
 }
+
+
+

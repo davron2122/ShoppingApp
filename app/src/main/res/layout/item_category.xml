@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="-4sp"
+        android:text="Men"
+        android:drawableRight="@drawable/ic_rightside_go"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e8e8e8"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
